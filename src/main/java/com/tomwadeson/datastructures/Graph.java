@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -88,5 +90,25 @@ public class Graph<T> {
 		List<T> l = new ArrayList<>(vertices);
 		Collections.reverse(l);
 		return l;
+	}
+	
+	public Set<T> breadthFirstSearch(T vertex) {
+		Set<T> visited = new LinkedHashSet<>();
+		
+		Queue<T> queue = new LinkedList<>();
+		queue.add(vertex);
+		
+		while (!queue.isEmpty()) {
+			T v = queue.remove();
+			
+			if (!visited.contains(v)) {
+				visited.add(v);
+				
+				for(T w : getAdjacentVertices(v))
+					queue.add(w);
+			}
+		}
+		
+		return visited;
 	}
 }

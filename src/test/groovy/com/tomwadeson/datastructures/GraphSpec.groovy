@@ -98,4 +98,15 @@ class GraphSpec extends Specification {
 		then:
 		graph.depthFirstSearch(1) as List == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 	}
+	
+	void "BFS should traverse graphs in the correct order"() {
+		given:
+		def edges = [1, 2, 1, 3, 1, 4, 2, 5, 2, 6, 5, 9, 5, 10, 4, 7, 4, 8, 7, 11, 7, 12]
+
+		when:
+		def graph = new Graph(edges)
+
+		then:
+		graph.breadthFirstSearch(1) as List == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	}
 }
