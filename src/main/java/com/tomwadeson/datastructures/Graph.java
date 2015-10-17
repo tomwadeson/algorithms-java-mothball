@@ -1,11 +1,14 @@
 package com.tomwadeson.datastructures;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph<T> {
 
@@ -54,5 +57,36 @@ public class Graph<T> {
 		}
 		
 		return edges;
+	}
+	
+	public Set<T> getAdjacentVertices(T vertex) {
+		return adjacencyList.getOrDefault(vertex, Collections.emptySet());
+	}
+	
+	public Set<T> depthFirstSearch(T vertex) {
+		Set<T> visited = new LinkedHashSet<>();
+		
+		Stack<T> stack = new Stack<>();
+		stack.push(vertex);
+		
+		while(!stack.isEmpty()) {
+			T v = stack.pop();
+			
+			if (!visited.contains(v)) {
+				visited.add(v);
+				
+				// Reversing the order of adjacent vertices to effect a pre-order traversal of the graph
+				for (T w : reverse(getAdjacentVertices(v)))
+					stack.push(w);
+			}
+		}
+		
+		return visited;
+	}
+	
+	private List<T> reverse(Set<T> vertices) {
+		List<T> l = new ArrayList<>(vertices);
+		Collections.reverse(l);
+		return l;
 	}
 }

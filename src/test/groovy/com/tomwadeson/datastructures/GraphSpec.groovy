@@ -60,4 +60,42 @@ class GraphSpec extends Specification {
 		then:
 		graph.getEdges().collect { edge -> edge.toList() }.flatten() == [1, 2, 1, 3]
 	}
+	
+	void "should return a vertex's adjacent vertices"() {
+		given:
+		def edges = [1, 2, 1, 3]
+		def graph = new Graph(edges)
+		
+		when:
+		def adjacentVertices = graph.getAdjacentVertices(from)
+		
+		then:
+		adjacentVertices as List == expected
+		
+		where:
+		from || expected
+		1    || [2, 3]
+		2    || []
+		3    || []
+		500  || []
+	}
+	
+	void "should return a set as a list with its elements reversed based on insertion order"() {
+		given:
+		def graph = new Graph()
+		
+		expect:
+		graph.reverse([1, 2, 3, 4, 5] as Set) == [5, 4, 3, 2, 1]
+	}
+	
+	void "DFS should traverse graphs in the correct order"() {
+		given:
+		def edges = [1, 2, 1, 7, 1, 8, 2, 3, 2, 6, 3, 4, 3, 5, 8, 9, 8, 12, 9, 10, 9, 11]
+
+		when:
+		def graph = new Graph(edges)
+
+		then:
+		graph.depthFirstSearch(1) as List == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+	}
 }
