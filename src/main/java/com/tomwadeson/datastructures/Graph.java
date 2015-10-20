@@ -1,16 +1,7 @@
 package com.tomwadeson.datastructures;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Queue;
-import java.util.Set;
-import java.util.Stack;
 
 public class Graph<T> {
 
@@ -77,7 +68,8 @@ public class Graph<T> {
 			if (!visited.contains(v)) {
 				visited.add(v);
 				
-				// Reversing the order of adjacent vertices to effect a pre-order traversal of the graph
+				// Reversing the order of adjacent vertices to 
+				// effect a pre-order traversal of the graph
 				for (T w : reverse(getAdjacentVertices(v)))
 					stack.push(w);
 			}

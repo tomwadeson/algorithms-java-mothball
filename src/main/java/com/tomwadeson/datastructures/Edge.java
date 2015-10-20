@@ -1,6 +1,6 @@
 package com.tomwadeson.datastructures;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Edge<T> {
@@ -14,9 +14,6 @@ public class Edge<T> {
 	}
 	
 	public List<T> toList() {
-		List<T> list = new ArrayList<>();
-		list.add(from);
-		list.add(to);
-		return list;
+		return Arrays.asList(from, to);
 	}
 }
