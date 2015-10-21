@@ -18,7 +18,7 @@ public class Graph<T> {
 
 	private void addEdges(List<T> edges) {
 		if (edges.size() % 2 == 1)
-			throw new IllegalArgumentException("To create edges, vertices should be supplied in pairs");
+            throw new IllegalArgumentException("To create edges, vertices should be supplied in pairs");
 		
 		for (int i = 0; i < edges.size(); i += 2)
 			addEdge(edges.get(i), edges.get(i+1));
