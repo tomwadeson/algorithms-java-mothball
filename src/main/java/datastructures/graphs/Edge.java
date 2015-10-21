@@ -1,4 +1,4 @@
-package com.tomwadeson.datastructures;
+package datastructures.graphs;
 
 import java.util.Arrays;
 import java.util.List;

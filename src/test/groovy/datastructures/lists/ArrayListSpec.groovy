@@ -1,5 +1,6 @@
-package com.tomwadeson.datastructures.lists
+package datastructures.lists
 
+import datastructures.lists.ArrayList;
 import spock.lang.*
 
 class ArrayListSpec extends Specification {

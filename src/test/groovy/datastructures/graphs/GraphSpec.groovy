@@ -1,5 +1,6 @@
-package com.tomwadeson.datastructures
+package datastructures.graphs
 
+import datastructures.graphs.Graph;
 import spock.lang.*
 
 class GraphSpec extends Specification {

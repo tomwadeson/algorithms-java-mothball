@@ -1,4 +1,4 @@
-package com.tomwadeson.datastructures.lists;
+package datastructures.lists;
 
 public class LinkedList<T> implements List<T> {
 	

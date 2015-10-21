@@ -1,4 +1,4 @@
-package com.tomwadeson.datastructures.lists;
+package datastructures.lists;
 
 public class ArrayList<T> implements List<T> {
 	
