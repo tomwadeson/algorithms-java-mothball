@@ -1,4 +1,4 @@
-package com.tomwadeson.datastructures;
+package datastructures.graphs;
 
 import java.util.*;
 import java.util.Map.Entry;

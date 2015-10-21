@@ -1,5 +1,6 @@
-package com.tomwadeson.datastructures.lists
+package datastructures.lists
 
+import datastructures.lists.LinkedList;
 import spock.lang.*
 
 class LinkedListSpec extends Specification {

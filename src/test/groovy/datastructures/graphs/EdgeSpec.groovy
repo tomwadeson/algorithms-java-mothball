@@ -1,5 +1,6 @@
-package com.tomwadeson.datastructures
+package datastructures.graphs
 
+import datastructures.graphs.Edge;
 import spock.lang.*
 
 class EdgeSpec extends Specification {

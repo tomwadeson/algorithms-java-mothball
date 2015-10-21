@@ -1,4 +1,4 @@
-package com.tomwadeson.datastructures.lists;
+package datastructures.lists;
 
 public interface List<T> {
 	
